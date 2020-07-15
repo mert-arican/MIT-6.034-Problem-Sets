@@ -1,2 +1,2 @@
 # MIT-6.034-Problem-Sets
-My solutions for MIT 6.034 Artificial Intelligence (as taught in Fall 2010) problem sets.
+My solutions for MIT 6.034 Artificial Intelligence Course (as taught in Fall 2010) problem sets. Solution for lab5 is not available because of the compatibility issues of orange files. All solutions works fine with python 3.7. At some parts of the labs, I've taken a look at the solutions of other people, but most of the times I found out that there was a compatibility issue (This labs meant to be solved with python 2). I think that I understand all the work I've done.
