@@ -15,7 +15,7 @@ from zookeeper import ZOOKEEPER_RULES
 
 def backchain_to_goal_tree(rules, hypothesis):
     all_consequents = [rule.consequent()[index] for rule in rules for index in range(0,len(rule.consequent()))]
-    matched_rules = [rule for rule in rules if is_matched_with_the_consequent(rule.consequent()[0], hypothesis)] ; chain = OR(hypothesis)
+    matched_rules = [rule for rule in rules if match(rule.consequent()[0], hypothesis) != None] ; chain = OR(hypothesis)
     for rule in matched_rules:
         bindings = get_bindings(rule.consequent(), hypothesis)
         template, antecedents = extract(rule.antecedent())
@@ -32,9 +32,6 @@ def extract(antecedent):
     
 def antecedent_is_not_consequent_of_any_rule(consequents, antecedent):
     return not True in [match(consequent, antecedent) == None for consequent in consequents]
-
-def is_matched_with_the_consequent(consequent, hypothesis):
-    return match(consequent, hypothesis) != None
 
 def get_bindings(consequents, hypothesis):
     return [match(consequent, hypothesis) for consequent in consequents if match(consequent, hypothesis) != None][0]
